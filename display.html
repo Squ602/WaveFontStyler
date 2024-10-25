@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音声と画像のギャラリー</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('.item img');
+            const qrOverlay = document.querySelector('.qr-overlay');
+            const qrCode = document.querySelector('.qr-code');
+            const closeQr = document.querySelector('.close-qr');
+
+            images.forEach(img => {
+                img.addEventListener('click', function () {
+                    // QRコードのURLを生成（実際のQRコード生成に置き換えてください）
+                    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(img.src)}`;
+                    qrCode.src = qrUrl;
+                    qrOverlay.style.display = 'flex';
+                });
+            });
+
+            closeQr.addEventListener('click', function () {
+                qrOverlay.style.display = 'none';
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="title">WaveFontStyler:音に基づくフォントスタイル変換</h1>
+        <p class="author">泉幸太,柳井啓司（電通大）</p>
+        <p class="abstract">
+            本研究では，入力した音に沿ったスタイルを文字画像に転送する手法を提案する．<br>音と画像の特徴量を同一空間上に埋め込むモデルImageBindとベジェ曲線による文字表現を組み合わせることで，音に沿ったスタイルを文字画像に転送する．
+        </p>
+    </div>
+    <div class="gallery">
+        <div class="item">
+            <div class="text">water drops</div>
+            <img src="./image/mi_water_drop.png" alt="Image 1">
+            <audio controls>
+                <source src="./audio/water_drops.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">chirping bird</div>
+            <img src="./image/mi_bird.png" alt="Image 2">
+            <audio controls>
+                <source src="./audio/chirping_bird.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">clapping</div>
+            <img src="./image/mi_clapping.png" alt="Image 3">
+            <audio controls>
+                <source src="./audio/clapping.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">pouring water</div>
+            <img src="./image/mi_pour_water.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/pouring_water.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">clacking fire</div>
+            <img src="./image/moon_cracking_fire.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/cracking_fire.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">pouring water</div>
+            <img src="./image/moon_pour_water.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/pouring_water.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">rooster</div>
+            <img src="./image/moon_rooster2.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/rooster.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">thunderstorm</div>
+            <img src="./image/moon_thunderstorm2.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/thunderstorm.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">sea waves</div>
+            <img src="./image/hon_sea_waves.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/sea_waves.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="item">
+            <div class="text">frog</div>
+            <img src="./image/gaku_frog.png" alt="Image 4">
+            <audio controls>
+                <source src="./audio/frog.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+    <div class="qr-overlay">
+        <div class="qr-container">
+            <img class="qr-code" src="" alt="QR コード">
+            <button class="close-qr">閉じる</button>
+        </div>
+    </div>
+</body>
+
+</html>
